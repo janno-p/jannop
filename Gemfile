@@ -5,8 +5,11 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'ruby-openid'
+gem 'rack-openid'
 
+gem 'sqlite3'
+gem 'irbtools', :require => 'irbtools/configure'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +32,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development do
+  gem 'mongrel', '>= 1.2.0.pre2'
+end
 
 group :test do
   # Pretty printed test output
