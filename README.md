@@ -1,4 +1,4 @@
-== Welcome to Rails
+## Welcome to Rails ##
 
 Rails is a web-application framework that includes everything needed to create
 database-backed web applications according to the Model-View-Control pattern.
@@ -26,7 +26,7 @@ Rails. You can read more about Action Pack in
 link:files/vendor/rails/actionpack/README.html.
 
 
-== Getting Started
+## Getting Started ##
 
 1. At the command prompt, create a new Rails application:
        <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
@@ -40,11 +40,11 @@ link:files/vendor/rails/actionpack/README.html.
 4. Follow the guidelines to start developing your application. You can find
 the following resources handy:
 
-* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
-* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
+   * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
+   * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
 
 
-== Debugging Rails
+## Debugging Rails ##
 
 Sometimes your application goes wrong. Fortunately there are a lot of tools that
 will help you debug it and get it back on the rails.
@@ -57,17 +57,17 @@ shown in the browser on requests from 127.0.0.1.
 You can also log your own messages directly into the log file from your code
 using the Ruby logger class from inside your controllers. Example:
 
-  class WeblogController < ActionController::Base
-    def destroy
-      @weblog = Weblog.find(params[:id])
-      @weblog.destroy
-      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
+    class WeblogController < ActionController::Base
+      def destroy
+        @weblog = Weblog.find(params[:id])
+        @weblog.destroy
+        logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
+      end
     end
-  end
 
 The result will be a message in your log file along the lines of:
 
-  Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
+    Mon Oct 08 14:22:29 +1000 2007 Destroyed Weblog ID #1!
 
 More information on how to use the logger is at http://www.ruby-doc.org/core/
 
@@ -81,7 +81,7 @@ These two books will bring you up to speed on the Ruby language and also on
 programming in general.
 
 
-== Debugger
+## Debugger ##
 
 Debugger support is available through the debugger command when you start your
 Mongrel or WEBrick server with --debugger. This means that you can break out of
@@ -117,7 +117,7 @@ with a IRB prompt in the server window. Here you can do things like:
 Finally, when you're ready to resume execution, you can enter "cont".
 
 
-== Console
+## Console ##
 
 The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
@@ -142,7 +142,7 @@ More information about irb can be found at:
 link:http://www.rubycentral.org/pickaxe/irb.html
 
 
-== dbconsole
+## dbconsole ##
 
 You can go to the command line of your database directly through <tt>rails
 dbconsole</tt>. You would be connected to the database with the credentials
@@ -151,7 +151,7 @@ to the development database. Passing an argument will connect you to a different
 database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
 PostgreSQL and SQLite 3.
 
-== Description of Contents
+## Description of Contents ##
 
 The default directory structure of a generated Ruby on Rails application:
 
