@@ -193,7 +193,7 @@ The default directory structure of a generated Ruby on Rails application:
             `-- stylesheets  
         `-- plugins  
 
-app
+app  
  > Holds all the code that's specific to this particular application.
 
 app/assets
