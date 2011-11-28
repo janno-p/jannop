@@ -156,42 +156,42 @@ PostgreSQL and SQLite 3.
 The default directory structure of a generated Ruby on Rails application:
 
   |-- app
-  |   |-- assets
-  |       |-- images
-  |       |-- javascripts
-  |       `-- stylesheets
-  |   |-- controllers
-  |   |-- helpers
-  |   |-- mailers
-  |   |-- models
-  |   `-- views
-  |       `-- layouts
-  |-- config
-  |   |-- environments
-  |   |-- initializers
-  |   `-- locales
-  |-- db
-  |-- doc
-  |-- lib
-  |   `-- tasks
-  |-- log
-  |-- public
-  |-- script
-  |-- test
-  |   |-- fixtures
-  |   |-- functional
-  |   |-- integration
-  |   |-- performance
-  |   `-- unit
-  |-- tmp
-  |   |-- cache
-  |   |-- pids
-  |   |-- sessions
-  |   `-- sockets
-  `-- vendor
-      |-- assets
-          `-- stylesheets
-      `-- plugins
+    |   |-- assets
+    |       |-- images
+    |       |-- javascripts
+    |       `-- stylesheets
+    |   |-- controllers
+    |   |-- helpers
+    |   |-- mailers
+    |   |-- models
+    |   `-- views
+    |       `-- layouts
+    |-- config
+    |   |-- environments
+    |   |-- initializers
+    |   `-- locales
+    |-- db
+    |-- doc
+    |-- lib
+    |   `-- tasks
+    |-- log
+    |-- public
+    |-- script
+    |-- test
+    |   |-- fixtures
+    |   |-- functional
+    |   |-- integration
+    |   |-- performance
+    |   `-- unit
+    |-- tmp
+    |   |-- cache
+    |   |-- pids
+    |   |-- sessions
+    |   `-- sockets
+    `-- vendor
+        |-- assets
+            `-- stylesheets
+        `-- plugins
 
 app
   Holds all the code that's specific to this particular application.
