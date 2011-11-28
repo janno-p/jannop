@@ -155,17 +155,17 @@ PostgreSQL and SQLite 3.
 
 The default directory structure of a generated Ruby on Rails application:
 
-  |-- app
-    |   |-- assets
-    |       |-- images
-    |       |-- javascripts
-    |       `-- stylesheets
-    |   |-- controllers
-    |   |-- helpers
-    |   |-- mailers
-    |   |-- models
-    |   `-- views
-    |       `-- layouts
+  > |-- app
+  > |   |-- assets
+  > |       |-- images
+  > |       |-- javascripts
+  > |       `-- stylesheets
+  > |   |-- controllers
+  > |   |-- helpers
+  > |   |-- mailers
+  > |   |-- models
+  > |   `-- views
+  > |       `-- layouts
     |-- config
     |   |-- environments
     |   |-- initializers
