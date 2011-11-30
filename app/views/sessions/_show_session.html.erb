@@ -4,6 +4,6 @@
     <li class="google"><%= link_to "Sign in with Google", new_session_path %></li>
   </ul>
 <% else %>
-  <%= link_to "Sign out", { :controller => :sessions }, :method => :delete %>
+  <%= link_to "Sign out", { :controller => :sessions, :action => :destroy }, :method => :delete %>
 <% end %>
 </div></aside>
