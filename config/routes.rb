@@ -2,8 +2,6 @@ Jannop::Application.routes.draw do
   get "site", :controller => :site, :action => :index
   get "site/index"
 
-  get "actions/view"
-
   resource :session
 
   # The priority is based upon order of creation:
