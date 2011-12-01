@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         'http://axschema.org/namePerson/last',
       ],
       :return_to => session_url,
+      :pape => 0,
       :method => 'POST'
     )
     head 401
