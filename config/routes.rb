@@ -3,6 +3,7 @@ Jannop::Application.routes.draw do
   get "site/index"
 
   resource :session
+  resource :user
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
