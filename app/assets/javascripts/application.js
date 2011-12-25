@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $("#account-link").click(function() {
+    $("#account-panel").slideToggle(200);
+  });
+});
+
+$(document).keydown(function(e) {
+  if (e.keyCode == 27) {
+    $("#account-panel").hide(0);
+  }
+});

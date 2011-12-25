@@ -4,6 +4,15 @@
     <li class="google"><%= link_to "Sign in with Google", new_session_path %></li>
   </ul>
 <% else %>
-  <%= link_to "Sign out (#{current_user.first_name} #{current_user.last_name})", { :controller => :sessions, :action => :destroy }, :method => :delete %>
+  <ul>
+    <li class="google"><%= link_to "#{current_user.first_name} #{current_user.last_name}", '#account', :id => 'account-link' %></li>
+  </ul>
+  
+  <div id="account-panel">
+    <ul>
+      <li class="google"><%= link_to "Sign out", { :controller => :sessions, :action => :destroy }, :method => :delete %></li>
+    </ul>
+    <small>Press ESC to close</small>
+  </div>
 <% end %>
 </div></aside>

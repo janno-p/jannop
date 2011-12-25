@@ -5,3 +5,36 @@
  *= require_self
  *= require_tree . 
 */
+
+header {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#account-link {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  background: #2a2a2a;
+  padding: 5px 15px 5px 15px;
+  color: #ffffff;
+}
+
+#account-panel {
+  position: absolute;
+  top: 26px;
+  right: 0px;
+  width: 190px;
+  padding: 10px 15px 5px 15px;
+  background: #2a2a2a;
+  font-size: 8pt;
+  font-weight: bold;
+  color: #ffffff;
+  display: none;
+}
+
+#account-panel a {
+  color: #ffffff;
+}
