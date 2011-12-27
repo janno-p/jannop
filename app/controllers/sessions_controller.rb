@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authentication_token
+  skip_before_filter :ensure_signed_in, :except => :destroy
 
   def new
     response.headers['WWW-Authenticate'] = Rack::OpenID.build_header(

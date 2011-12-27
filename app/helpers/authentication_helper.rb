@@ -1,6 +1,6 @@
 module AuthenticationHelper
   def signed_in?
-    !session[:user_id].nil? and User.exists?(session[:user_id])
+    !session[:user_id].nil? and !current_user.nil?
   end
 
   def current_user

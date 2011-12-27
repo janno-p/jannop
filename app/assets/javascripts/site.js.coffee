@@ -5,6 +5,7 @@
 $(document).ready ->
   $("#account-link").click ->
     $("#account-panel").slideToggle(200)
+    false
 
 $(document).keydown (e) ->
   $("#account-panel").hide(0) if e.keyCode == 27
