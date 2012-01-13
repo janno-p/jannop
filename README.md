@@ -243,8 +243,8 @@ doesn't belong under controllers, models, or helpers. This directory is in
 the load path.
 
 **public**  
-The directory available for the web server. Also contains the dispatchers and the
-default HTML files. This should be set as the DOCUMENT_ROOT of your web
+The directory available for the web server. Also contains the dispatchers and
+the default HTML files. This should be set as the DOCUMENT_ROOT of your web
 server.
 
 **script**  

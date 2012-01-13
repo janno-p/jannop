@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  skip_before_filter :verify_authentication_token
+  protect_from_forgery :except => :create
+  
   skip_before_filter :ensure_signed_in, :except => :destroy
 
   def new
@@ -36,6 +37,8 @@ class SessionsController < ApplicationController
           redirect_to(session[:redirect_to] || root_path)
         end
       when :failure
+        render :action => 'problem'
+      when :cancel
         render :action => 'problem'
       end
     else
