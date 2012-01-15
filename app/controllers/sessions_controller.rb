@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
-  protect_from_forgery :except => :create
   
+  protect_from_forgery :except => :create
   skip_before_filter :ensure_signed_in, :except => :destroy
+
+  def confirm_new
+  end
 
   def new
     response.headers['WWW-Authenticate'] = Rack::OpenID.build_header(

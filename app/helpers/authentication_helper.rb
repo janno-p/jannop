@@ -12,7 +12,7 @@ module AuthenticationHelper
       sign_out!
       session[:redirect_to] = request.fullpath
       flash[:notice] = "Please log in!"
-      redirect_to(new_session_path)
+      redirect_to(confirm_new_session_path)
     end
   end
   
