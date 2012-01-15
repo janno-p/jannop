@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113213215) do
+ActiveRecord::Schema.define(:version => 20120115215045) do
+
+  create_table "coins", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "code",       :limit => 10, :null => false
+    t.string   "name",       :limit => 32, :null => false
+    t.string   "genitive",   :limit => 32, :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "identifier_url",                    :null => false

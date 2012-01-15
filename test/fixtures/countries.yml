@@ -1,0 +1,125 @@
+austria:
+  id: 1
+  code: at
+  name: Austria
+  genitive: Austria
+
+belgium:
+  id: 2
+  code: be
+  name: Belgia
+  genitive: Belgia
+
+cyprus:
+  id: 3
+  code: cy
+  name: Küpros
+  genitive: Küprose
+
+estonia:
+  id: 4
+  code: ee
+  name: Eesti
+  genitive: Eesti
+
+finland:
+  id: 5
+  code: fi
+  name: Soome
+  genitive: Soome
+
+france:
+  id: 6
+  code: fr
+  name: Prantsusmaa
+  genitive: Prantsusmaa
+
+germany:
+  id: 7
+  code: de
+  name: Saksamaa
+  genitive: Saksamaa
+
+greece:
+  id: 8
+  code: gr
+  name: Kreeka
+  genitive: Kreeka
+
+ireland:
+  id: 9
+  code: ie
+  name: Iirimaa
+  genitive: Iirimaa
+
+italy:
+  id: 10
+  code: it
+  name: Itaalia
+  genitive: Itaalia
+
+luxembourg:
+  id: 11
+  code: lu
+  name: Luksemburg
+  genitive: Luksemburgi
+
+malta:
+  id: 12
+  code: mt
+  name: Malta
+  genitive: Malta
+
+monaco:
+  id: 13
+  code: mc
+  name: Monaco
+  genitive: Monaco
+
+netherlands:
+  id: 14
+  code: nl
+  name: Holland
+  genitive: Hollandi
+
+portugal:
+  id: 15
+  code: pt
+  name: Portugal
+  genitive: Portugali
+
+san_marino:
+  id: 16
+  code: sm
+  name: San Marino
+  genitive: San Marino
+
+slovakia:
+  id: 17
+  code: sk
+  name: Slovakkia
+  genitive: Slovakkia
+
+slovenia:
+  id: 18
+  code: si
+  name: Sloveenia
+  genitive: Sloveenia
+
+spain:
+  id: 19
+  code: es
+  name: Hispaania
+  genitive: Hispaania
+
+vatican_city:
+  id: 20
+  code: va
+  name: Vatikan
+  genitive: Vatikani
+
+euro_zone:
+  id: 21
+  code: eu
+  name: Euroala riigid
+  genitive: Euroala riikide
