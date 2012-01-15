@@ -1,10 +1,13 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  fixtures :users
+  
   setup do
-    @user = users(:one)
+    @user = users(:toivo)
   end
 
+=begin
   test "should get index" do
     get :index
     assert_response :success
@@ -45,5 +48,24 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to users_path
+  end
+=end
+  
+  test "index without user" do
+    get :index
+    assert_redirected_to new_session_path
+    assert_equal "Please log in!", flash[:notice]
+  end
+  
+  test "index with active user" do
+    get :index, {}, { :user_id => @user.id }
+    assert_response :success
+    assert_template :index
+  end
+  
+  test "index with inactive user" do
+    get :index, {}, { :user_id => users(:mauno).id }
+    assert_redirected_to root_path
+    assert_equal "User mauno@openid.test is not ativated yet. Try again later!", flash[:notice]
   end
 end

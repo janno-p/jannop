@@ -10,6 +10,10 @@
   <header>
     <%= render 'sessions/show_session' %>
   </header>
+  
+  <% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
 
 <%= yield %>
 
