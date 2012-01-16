@@ -169,7 +169,7 @@ GEM
     unicode-display_width (0.1.1)
     will_paginate (3.0.2)
     wirb (0.4.1)
-    zucker (11)
+    zucker (12.1)
 
 PLATFORMS
   ruby
