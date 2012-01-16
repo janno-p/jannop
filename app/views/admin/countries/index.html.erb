@@ -1,0 +1,27 @@
+<h1>Listing countries</h1>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Actions</th>
+  </tr>
+<% @countries.each do |country| %>
+  <tr>
+    <td><%= country.name %></td>
+    <td><code><%= country.code.upcase %></code></td>
+    <td>
+      <%= link_to 'Edit', edit_admin_country_path(country) %> |
+      <%= link_to 'Destroy', admin_country_path(country), confirm: 'Are you sure?', method: 'delete' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @countries %>
+
+<div id="actions">
+  <ul>
+    <li><%= link_to 'Add another country', new_admin_country_path %></li>
+  </ul>
+</div>

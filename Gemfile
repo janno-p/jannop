@@ -4,6 +4,7 @@ gem 'rails', '3.2.0.rc2'
 
 gem 'ruby-openid'
 gem 'rack-openid'
+gem 'will_paginate', '~> 3.0'
 
 gem 'sqlite3'
 gem 'irbtools', :require => 'irbtools/configure'
