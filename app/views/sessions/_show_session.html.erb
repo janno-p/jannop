@@ -10,7 +10,13 @@
   
   <div id="account-panel">
     <ul>
-      <li><%= link_to "Sign out", session_path, :action => :destroy, :method => :delete %></li>
+      <li><%= link_to 'Main', root_path %></li>
+      <li><%= link_to 'Users', users_path %></li>
+      <li><%= link_to 'Countries', admin_countries_path %></li>
+    </ul>
+    <hr />
+    <ul>
+      <li><%= link_to "Sign out", session_path, action: 'destroy', method: 'delete' %></li>
     </ul>
     <small>Press ESC to close</small>
   </div>
