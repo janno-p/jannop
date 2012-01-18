@@ -26,6 +26,9 @@ role :web, settings["web_server"]
 role :app, settings["app_server"]
 role :db, settings["db_server"], :primary => true
 
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+
 namespace :deploy do
   #after "deploy:setup", "deploy:jannop:setup"
   #after "deploy:symlink", "deploy:jannop:symlink"
