@@ -11,16 +11,15 @@ settings = YAML::load_file(filename)
 
 set :application, "jannop"
 set :deploy_to, settings["destination_path"]
-set :username, settings["server_username"]
+set :user, settings["server_username"]
 set :password, settings["server_password"]
+set :use_sudo, false
 
 set :scm, "git"
-set :scm_username, settings["scm_username"]
-set :scm_password, settings["scm_password"]
-set :repository, "https://github.com/janno-p/jannop.git"
+set :scm_passphrase, settings["scm_passphrase"]
+set :repository, "git@github.com:janno-p/jannop.git"
 set :branch, "master"
-set :scm_verbose, true
-set :use_sudo, false
+set :deploy_via, :remote_cache
 
 role :web, settings["web_server"]
 role :app, settings["app_server"]

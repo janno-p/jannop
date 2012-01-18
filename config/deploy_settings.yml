@@ -4,5 +4,4 @@ db_server       : hostname
 destination_path: /where/to/install
 server_username : username
 server_password : password
-scm_username    : username
-scm_password    : password
+scm_passphrase  : password
