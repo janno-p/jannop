@@ -1,5 +1,8 @@
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+
 require 'bundler/capistrano'
 require 'FileUtils'
+require 'rvm/capistrano'
 
 dirname = File.dirname(__FILE__)
 filename = File.join(dirname, 'deploy_settings_local.yml')
@@ -28,6 +31,9 @@ role :db, settings["db_server"], :primary => true
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+
+set :rvm_ruby_string, '1.9.3@jannop'
+set :rvm_type, :user
 
 namespace :deploy do
   #after "deploy:setup", "deploy:jannop:setup"
