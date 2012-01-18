@@ -1,6 +1,7 @@
+require 'bundler/capistrano'
 require 'FileUtils'
 
-dirname = File.join(Rails.root, 'config')
+dirname = File.dirname(__FILE__)
 filename = File.join(dirname, 'deploy_settings_local.yml')
 
 unless File.exists?(filename) then
