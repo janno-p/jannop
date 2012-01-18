@@ -5,3 +5,8 @@ destination_path: /where/to/install
 server_username : username
 server_password : password
 scm_passphrase  : password
+rvm_path        : /path/to/rvm
+rvm_ruby_version: ruby version
+rvm_gem_home    : /path/to/rvm/gem/home
+rvm_gem_path    : /path/to/rvm/gem/path
+rvm_bundle_path : /path/to/rvm/bundle/path
