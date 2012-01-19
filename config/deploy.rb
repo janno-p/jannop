@@ -1,12 +1,13 @@
+# RVM bootstrap
+set :default_environment, {
+  'PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p0/bin:/usr/local/rvm/gems/ruby-1.9.3-p0@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-p0/bin:/usr/local/rvm/bin:$PATH',
+  'RUBY_VERSION' => 'ruby 1.9.3',
+  'GEM_HOME' => '/usr/local/rvm/gems/ruby-1.9.3-p0',
+  'GEM_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p0:/usr/local/rvm/gems/ruby-1.9.3-p0@global',
+}
+
 # Bundler bootstrap
 require 'bundler/capistrano'
-
-# RVM bootstrap
-#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-#require 'rvm/capistrano'
-set :rvm_ruby_string, 'ruby-1.9.3-p0'
-#set :rvm_type, :user
-set :rvm_bin_path, '/usr/local/rvm/bin'
 
 # Load sensitive info from settings file
 settings = YAML::load_file(File.join(File.dirname(__FILE__), 'deploy.yml'))
