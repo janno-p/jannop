@@ -8,4 +8,4 @@ tmp/
 *.komodoproject
 
 # Local file which holds deployment info
-config/deploy_settings_local.yml
+config/deploy.yml
