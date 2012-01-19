@@ -1,8 +1,12 @@
+# Bundler bootstrap
+require 'bundler/capistrano'
+
 # RVM bootstrap
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 #require 'rvm/capistrano'
 set :rvm_ruby_string, 'ruby-1.9.3-p0'
 #set :rvm_type, :user
+set :rvm_bin_path, '/usr/local/rvm/bin'
 
 # Load sensitive info from settings file
 settings = YAML::load_file(File.join(File.dirname(__FILE__), 'deploy.yml'))
