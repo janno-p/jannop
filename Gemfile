@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0.rc2'
+gem 'rails', '3.2.0'
 
 gem 'ruby-openid'
 gem 'rack-openid'
