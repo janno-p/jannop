@@ -10,7 +10,7 @@ set :default_environment, {
 require 'bundler/capistrano'
 
 # Load sensitive info from settings file
-SETTINGS = YAML::load_file(File.join(File.dirname(__FILE__), 'settings.yml'))
+SETTINGS = YAML::load_file(File.join(File.dirname(__FILE__), 'deploy.yml'))
 
 # Main details
 set :application, SETTINGS["application"]
@@ -35,6 +35,10 @@ set :git_enable_submodules, 1
 
 # Capistrano tasks
 namespace :deploy do
+  after "deploy:symlink", do
+    run "cd #{current_path}/config; rm settings.yml; ln -sf #{shared_path}/settings.yml settings.yml"
+  end
+  
   task :start do ; end
   task :stop do ; end
   
