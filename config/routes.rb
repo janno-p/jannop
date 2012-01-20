@@ -1,6 +1,5 @@
 Jannop::Application.routes.draw do
-  get "site", :controller => :site, :action => :index
-  get "site/index"
+  match "site(/index)" => "site#index", :via => :get
 
   resource :session, :only => [:new, :create, :destroy] do
     get :confirm_new
