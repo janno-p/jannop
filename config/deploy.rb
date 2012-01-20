@@ -10,20 +10,20 @@ set :default_environment, {
 require 'bundler/capistrano'
 
 # Load sensitive info from settings file
-settings = YAML::load_file(File.join(File.dirname(__FILE__), 'deploy.yml'))
+SETTINGS = YAML::load_file(File.join(File.dirname(__FILE__), 'settings.yml'))
 
 # Main details
-set :application, settings["application"]
-role :web, settings["application"]
-role :app, settings["application"]
-role :db, settings["application"], :primary => true
+set :application, SETTINGS["application"]
+role :web, SETTINGS["application"]
+role :app, SETTINGS["application"]
+role :db, SETTINGS["application"], :primary => true
 
 # Server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :deploy_to, settings["deploy_to"]
+set :deploy_to, SETTINGS["deploy_to"]
 set :deploy_via, :remote_cache
-set :user, settings["user"]
+set :user, SETTINGS["user"]
 set :use_sudo, false
 set :normalize_asset_timestamps, false
 
