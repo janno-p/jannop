@@ -37,6 +37,7 @@ set :git_enable_submodules, 1
 namespace :deploy do
   after "deploy:symlink", do
     run "cd #{current_path}/config; rm settings.yml; ln -sf #{shared_path}/settings.yml settings.yml"
+    run "cd #{current_path}/db; rm production.sqlite3; ln -sf #{shared_path}/production.sqlite3"
   end
   
   task :start do ; end
