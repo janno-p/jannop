@@ -15,7 +15,7 @@ module AuthenticationHelper
       redirect_to(confirm_new_session_path)
     end
   end
-  
+
   def ensure_user_active
     if signed_in? and not current_user.active? then
       sign_out!
@@ -23,7 +23,7 @@ module AuthenticationHelper
       redirect_to(root_path)
     end
   end
-  
+
   def sign_out!
     session[:user_id] = nil
   end

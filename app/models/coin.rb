@@ -10,7 +10,7 @@ class Coin < ActiveRecord::Base
       normal: '150x150>',
       collected: {
         geometry: '150x150>',
-        watermark_path: "#{Rails.root}/public/images/watermark.png",
+        watermark_path: "#{Rails.root}/lib/paperclip_processors/watermark.png",
         position: 'Center',
       },
     },
@@ -42,5 +42,9 @@ class Coin < ActiveRecord::Base
       self.collected_at = collected_at if self.collected_at.nil?
       self.collected_by = collected_by
     end
+  end
+
+  def self.get_latest(n)
+    Coin.limit(n).where(collected_at: 'is not null').order('collected_at desc').to_a
   end
 end

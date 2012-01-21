@@ -1,0 +1,51 @@
+<%= form_for(@coin, as: :coin, url: coins_path, html: { multipart: true }) do |f| %>
+  <% if @coin.errors.any? then %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nominal_value, 'Nimiväärtus' %>:<br />
+    <%= f.select :nominal_value, Coin::NOMINAL_VALUES.collect { |v| [number_to_currency(v, unit: '&euro;'), v] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country_id, 'Väljaandja riik' %>:<br />
+    <%= f.collection_select :country_id, @countries, :id, :name %>
+  </div>
+
+  <% if @coin.is_a? CommemorativeCoin %>
+  <div class="field">
+    <%= f.label :commemorative_year, 'Aasta' %>:<br />
+    <%= f.select :commemorative_year, CommemorativeCoin.release_years %>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image, 'Pilt' %>:</br>
+    <%= f.file_field :image %>
+  </div>
+
+  <!-- % if can? :confirm_coin, :coin % -->
+  <div class="field">
+    <%= f.label :collected?, 'Leitud' %>:</br>
+    <%= f.check_box :collected? %>
+  </div>
+
+  <div class="field">
+    <%= f.label :collected_by, 'Leidja' %>:<br />
+    <%= f.text_field :collected_by %>
+  </div>
+  <!--% end %-->
+
+  <div class="actions">
+    <%= hidden_field_tag :coin_type, @coin.class %>
+    <%= f.submit 'Salvesta' %>
+  </div>
+<% end %>
