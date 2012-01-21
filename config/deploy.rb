@@ -39,14 +39,14 @@ namespace :deploy do
     run "cd #{current_path}/config; rm settings.yml; ln -sf #{shared_path}/settings.yml settings.yml"
     run "cd #{current_path}/db; rm production.sqlite3; ln -sf #{shared_path}/production.sqlite3"
   end
-  
+
   task :start do ; end
   task :stop do ; end
-  
+
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-  
+
   desc "reload the database with seed data"
   task :seed do
     run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
