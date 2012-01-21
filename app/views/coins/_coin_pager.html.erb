@@ -1,6 +1,6 @@
 <p>
   <%= link_to_unless_current 'Esilehele', coins_path %> |
-  <%= Coin::NOMINAL_VALUES.collect { |n| link_to_unless_current(number_to_currency(n, unit: '&euro;'), show_nominal_coins_path(number_with_precision(n, precision: 2, separator: '.'))) }.join(' | ').html_safe %>
+  <%= Coin::NOMINAL_VALUES.collect { |n| link_to_unless_current(nominal_value(n), show_nominal_coins_path(n)) }.join(' | ').html_safe %>
   <!--% if can? :create, :coin %>
     | < %= link_to 'Lisa uus &raquo;'.html_safe, new_common_coins_path %>
   < % end %-->

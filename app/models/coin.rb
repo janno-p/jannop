@@ -2,8 +2,8 @@ class Coin < ActiveRecord::Base
   NOMINAL_VALUES = [2.00, 1.00, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01]
 
   has_attached_file :image,
-    url: '/coins/:id/:style_:basename.:extension',
-    path: "#{Rails.root}/public/coins/:id/:style_:basename.:extension",
+    url: '/coins/:id_:style_:basename.:extension',
+    path: "#{Rails.root}/public/coins/:id_:style_:basename.:extension",
     styles: {
       normal: '150x150>',
       collected: {
