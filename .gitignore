@@ -9,3 +9,6 @@ tmp/
 
 # Local file which holds deployment info
 config/deploy.yml
+
+# Coin images folder
+public/coins/*

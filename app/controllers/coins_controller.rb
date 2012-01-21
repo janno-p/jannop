@@ -21,6 +21,24 @@ class CoinsController < ApplicationController
     new
   end
 
+  def create
+    @countries = Country.all_ordered_by_name
+
+    coin_hash = params[:coin]
+    collected = coin_hash.delete(:collected).to_i == 1
+    collected_by = coin_hash.delete(:collected_by)
+
+    @coin = params[:coin_type].constantize.new(coin_hash)
+    #@coin.collect(collected ? Time.now : nil, collected_by) if can? :confirm_coin, @coin
+
+    respond_to do |format|
+      if @coin.save then
+        format.html { redirect_to(coin_path(@coin), notice: 'Coin was successfully created.') }
+        format.json { render json: @coin, status: :created, location: @coin }
+      end
+    end
+  end
+
   private
   def new
     @countries = Country.all_ordered_by_name

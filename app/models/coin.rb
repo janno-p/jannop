@@ -1,5 +1,3 @@
-require 'paperclip_processors/watermark'
-
 class Coin < ActiveRecord::Base
   NOMINAL_VALUES = [2.00, 1.00, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01]
 
@@ -10,7 +8,7 @@ class Coin < ActiveRecord::Base
       normal: '150x150>',
       collected: {
         geometry: '150x150>',
-        watermark_path: "#{Rails.root}/lib/paperclip_processors/watermark.png",
+        watermark_path: "#{Rails.root}/public/images/watermark.png",
         position: 'Center',
       },
     },
