@@ -11,4 +11,4 @@ tmp/
 config/deploy.yml
 
 # Coin images folder
-public/coins/*
+public/coins
