@@ -25,7 +25,7 @@ class Coin < ActiveRecord::Base
   private_class_method :new, :allocate
 
   def image_url
-    self.image_url self.collected? ? :collected : :normal
+    self.image.url self.collected? ? :collected : :normal
   end
 
   def collected?

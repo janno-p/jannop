@@ -1,7 +1,7 @@
 class CreateCoins < ActiveRecord::Migration
   def change
     create_table :coins do |t|
-      t.decimal :nominal_value, scale: 2, null: false
+      t.string :nominal_value, null: false, limit: 4
       t.integer :country_id, null: false
       t.integer :commemorative_year
       t.string :image_file_name, null: false

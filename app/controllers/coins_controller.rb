@@ -10,6 +10,13 @@ class CoinsController < ApplicationController
       format.json { render json: @nominals }
     end
   end
+  
+  def show
+    @coin = Coin.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
+  end
 
   def new_common
     @coin = CommonCoin.new

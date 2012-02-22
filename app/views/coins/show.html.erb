@@ -1,0 +1,41 @@
+<h1>Coin information</h1>
+
+<div id="notice"><%= notice %></div>
+
+<ul>
+  <li>
+    <b>Nominal value:</b>
+    <span id="nominal_value" contenteditable="true"><%= number_to_currency(@coin.nominal_value, unit: '&euro;') %></span>
+  </li>
+  <li>
+    <b>Country:</b>
+    <span id="country" contenteditable="true"><%= link_to @coin.country.name, country_path(@coin) %></span>
+  </li>
+  <li>
+    <b>Image:</b>
+    <% if @coin.image.exists? then %>
+    <%= image_tag @coin.image_url %>
+    <% else %>
+    <p>No image attached, upload one.</p>
+    <% end %>
+  </li>
+  <% if @coin.collected? %>
+  <li>
+    <b>Kuupäev:</b>
+    <%= @coin.collected_at %>
+    <br />
+    <strong>Leidis:</strong>
+    <%= @coin.collected_by || 'Mulle teadmata isik' %>
+  </li>
+  <% end %>
+</ul>
+  
+<!--% if can? :update, :coin %-->
+<%= link_to 'Muuda', edit_coin_path(@coin) %> |
+<!--% end %-->
+
+<!--% if can? :destroy, :coin %-->
+<%= link_to 'Kustuta', coin_path(@coin), confirm: 'Are you sure?', method: :delete %> |
+<!--% end %-->
+
+<%= link_to 'Tagasi nimekirja', coins_path %>

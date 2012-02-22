@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20120115215045) do
 
   create_table "coins", :force => true do |t|
-    t.decimal  "nominal_value",      :null => false
-    t.integer  "country_id",         :null => false
+    t.string   "nominal_value",      :limit => 4, :null => false
+    t.integer  "country_id",                      :null => false
     t.integer  "commemorative_year"
-    t.string   "image_file_name",    :null => false
-    t.string   "image_content_type", :null => false
-    t.integer  "image_file_size",    :null => false
+    t.string   "image_file_name",                 :null => false
+    t.string   "image_content_type",              :null => false
+    t.integer  "image_file_size",                 :null => false
     t.datetime "collected_at"
     t.string   "collected_by"
-    t.string   "type",               :null => false
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.string   "type",                            :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "countries", :force => true do |t|
