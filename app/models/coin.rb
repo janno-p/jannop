@@ -43,6 +43,6 @@ class Coin < ActiveRecord::Base
   end
 
   def self.get_latest(n)
-    Coin.limit(n).where(collected_at: 'is not null').order('collected_at desc').to_a
+    Coin.limit(n).where('collected_at is not null').order('collected_at desc').to_a
   end
 end

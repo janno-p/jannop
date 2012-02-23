@@ -10,13 +10,6 @@ class CoinsController < ApplicationController
       format.json { render json: @nominals }
     end
   end
-  
-  def show
-    @coin = Coin.find(params[:id])
-    respond_to do |format|
-      format.html
-    end
-  end
 
   def new_common
     @coin = CommonCoin.new
@@ -36,11 +29,14 @@ class CoinsController < ApplicationController
     collected_by = coin_hash.delete(:collected_by)
 
     @coin = params[:coin_type].constantize.new(coin_hash)
-    #@coin.collect(collected ? Time.now : nil, collected_by) if can? :confirm_coin, @coin
+    
+    #if can? :confirm_coin, @coin
+      @coin.collect(collected ? Time.now : nil, collected_by)
+    #end
 
     respond_to do |format|
       if @coin.save then
-        format.html { redirect_to(coin_path(@coin), notice: 'Coin was successfully created.') }
+        format.html { redirect_to(coins_path, notice: 'Coin was successfully created.') }
         format.json { render json: @coin, status: :created, location: @coin }
       end
     end

@@ -5,7 +5,7 @@ Jannop::Application.routes.draw do
     get :confirm_new
   end
 
-  resources :coins, except: :new do
+  resources :coins, except: [:new, :show] do
     collection do
       get :new_common
       get :new_commemorative

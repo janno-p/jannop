@@ -1,0 +1,40 @@
+<article class="coin">
+  <div id="notice"><%= notice %></div>
+  <ul>
+    <li>
+      <strong>Nimiväärtus:</strong>
+      <%= nominal_value(coin) %>
+    </li>
+    <li>
+      <strong>Väljaandja:</strong>
+      <%= link_to coin.country.name, country_path(coin) %>
+    </li>
+    <li>
+      <strong>Kujundus:</strong>
+      <% if coin.image.exists? then %>
+      <%= image_tag coin.image_url %>
+      <% else %>
+      <p>No image attached, upload one!</p>
+      <% end %>
+    </li>
+    <% if coin.collected? %>
+    <li>
+      <strong>Leidja:</strong>
+      <span contenteditable="true"><%= coin.collected_by %></span>
+    </li>
+    <li>
+      <strong>Kuupäev:</strong>
+      <time datetime="<%= coin.collected_at %>"><%= coin.collected_at %></time>
+    </li>
+    <% end %>
+  </ul>
+  <footer>
+    <!--% if can? :update, :coin %-->
+    <%= link_to 'Muuda', edit_coin_path(coin) %> |
+    <!--% end %-->
+    <!--% if can? :destroy, :coin %-->
+    <%= link_to 'Kustuta', coin_path(coin), confirm: 'Are you sure?', method: :delete %> |
+    <!--% end %-->
+    <%= link_to 'Tagasi nimekirja', coins_path %>
+  </footer>
+</article>

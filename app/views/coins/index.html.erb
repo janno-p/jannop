@@ -1,17 +1,8 @@
 <%= render 'coin_pager' %>
 
 <% if @latest_coins.count > 0 then %>
-<div>
-  <h1>Viimased leiud</h1>
-  <% @latest_coins.each do |coin| %>
-  <div>
-    <%= link_to image_tag(coin.image_url), coin %>
-    <p>
-      <strong><%= link_to coin.country.name, country_path(coin) %></strong></br>
-      <strong><%= nominal_value(coin) %></strong><br />
-      (<%= coin.collected_by || 'Teadmata isik' %>)
-    </p>
-  </div>
-  <% end %>
-</div>
+<section id="coins">
+  <h2>Viimased leiud</h2>
+  <%= render partial: "coin", collection: @latest_coins, locals: { notice: notice } %>
+</section>
 <% end %>
