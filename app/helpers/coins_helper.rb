@@ -7,4 +7,8 @@ module CoinsHelper
   def country_path(coin)
     show_country_coins_path(coin.country.code)
   end
+
+  def nominal_path(coin)
+  	show_nominal_coins_path(coin.nominal_value)
+  end
 end

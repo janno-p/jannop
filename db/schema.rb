@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(:version => 20120115215045) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "identifier_url",                    :null => false
-    t.string   "email",                             :null => false
+    t.string   "identifier_url",                                 :null => false
+    t.string   "email",                                          :null => false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "active",         :default => false, :null => false
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.boolean  "active",                      :default => false, :null => false
+    t.integer  "roles_mask",     :limit => 8, :default => 0,     :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
   end
 
 end

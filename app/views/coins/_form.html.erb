@@ -11,14 +11,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nominal_value, 'Nimiväärtus' %>:<br />
-    <%= f.select :nominal_value, Coin::NOMINAL_VALUES.collect { |v| [number_to_currency(v, unit: '&euro;'), v] } %>
-  </div>
-
-  <div class="field">
     <%= f.label :country_id, 'Väljaandja riik' %>:<br />
     <%= f.collection_select :country_id, @countries, :id, :name %>
   </div>
+
+  <% if @coin.is_a? CommonCoin %>
+  <div class="field">
+    <%= f.label :nominal_value, 'Nimiväärtus' %>:<br />
+    <%= f.select :nominal_value, Coin::NOMINAL_VALUES.collect { |v| [number_to_currency(v, unit: '&euro;'), v] } %>
+  </div>
+  <% end %>
 
   <% if @coin.is_a? CommemorativeCoin %>
   <div class="field">
@@ -32,7 +34,7 @@
     <%= f.file_field :image %>
   </div>
 
-  <!-- % if can? :confirm_coin, :coin % -->
+  <% if can? :update, :coin %>
   <div class="field">
     <%= f.label :collected?, 'Leitud' %>:</br>
     <%= f.check_box :collected? %>
@@ -42,7 +44,7 @@
     <%= f.label :collected_by, 'Leidja' %>:<br />
     <%= f.text_field :collected_by %>
   </div>
-  <!--% end %-->
+  <% end %>
 
   <div class="actions">
     <%= hidden_field_tag :coin_type, @coin.class %>

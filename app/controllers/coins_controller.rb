@@ -2,6 +2,7 @@
 
 class CoinsController < ApplicationController
   skip_before_filter :ensure_signed_in, :except => [:new_common, :new_commemorative]
+  authorize_resource :class => false
 
   def index
     @latest_coins = Coin.get_latest(5)
@@ -29,10 +30,9 @@ class CoinsController < ApplicationController
     collected_by = coin_hash.delete(:collected_by)
 
     @coin = params[:coin_type].constantize.new(coin_hash)
-    
-    #if can? :confirm_coin, @coin
-      @coin.collect(collected ? Time.now : nil, collected_by)
-    #end
+    @coin.collect(collected ? Time.now : nil, collected_by)
+
+    @coin.nominal_value = "2.00" if @coin.is_a? CommemorativeCoin
 
     respond_to do |format|
       if @coin.save then
@@ -40,6 +40,11 @@ class CoinsController < ApplicationController
         format.json { render json: @coin, status: :created, location: @coin }
       end
     end
+  end
+
+  def show_year
+    @year = params[:year].to_i
+    @coins = CommemorativeCoin.joins(:country).find_all_by_commemorative_year(@year, order: '"countries"."name" asc')
   end
 
   private

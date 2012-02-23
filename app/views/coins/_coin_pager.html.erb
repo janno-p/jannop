@@ -1,15 +1,15 @@
 <p>
   <%= link_to_unless_current 'Esilehele', coins_path %> |
   <%= Coin::NOMINAL_VALUES.collect { |n| link_to_unless_current(nominal_value(n), show_nominal_coins_path(n)) }.join(' | ').html_safe %>
-  <!--% if can? :create, :coin %>
-    | < %= link_to 'Lisa uus &raquo;'.html_safe, new_common_coins_path %>
-  < % end %-->
+  <% if can? :create, :coin %>
+    | <%= link_to 'Lisa uus &raquo;'.html_safe, new_common_coins_path %>
+  <% end %>
 </p>
 
 <p>
   Mälestusmündid:
   <%= CommemorativeCoin.release_years.collect { |y| link_to_unless_current(y, show_year_coins_path(y)) }.join(' | ').html_safe %>
-  <!--% if can? :create, :coin %>
-    | < %= link_to 'Lisa uus &raquo'.html_safe, new_commemorative_coins_path %>
-  < % end %-->
+  <% if can? :create, :coin %>
+    | <%= link_to 'Lisa uus &raquo'.html_safe, new_commemorative_coins_path %>
+  <% end %>
 </p>

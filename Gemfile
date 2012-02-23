@@ -2,10 +2,11 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.1'
 
+gem 'cancan'
+gem 'paperclip'
 gem 'ruby-openid'
 gem 'rack-openid'
 gem 'will_paginate', '~> 3.0'
-gem 'paperclip'
 
 gem 'sqlite3'
 gem 'irbtools', :require => 'irbtools/configure'

@@ -1,0 +1,6 @@
+<%= render "coin_pager" %>
+
+<section id="coins">
+	<h2>Mälestusmündid aastast <%= @year %></h2>
+	<%= render partial: "coin", collection: @coins, locals: { notice: notice } %>
+</section>
