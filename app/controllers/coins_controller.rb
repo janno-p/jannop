@@ -42,6 +42,20 @@ class CoinsController < ApplicationController
     end
   end
 
+  def show_country
+    @country = Country.find_by_code(params[:country])
+    if @country.nil? then
+      redirect_to coins_path
+    end
+    @common_coins = CommonCoin.find_all_by_country_id(@country, order: 'nominal_value asc')
+    @commemorative_coins = CommemorativeCoin.find_all_by_country_id(@country, order: 'commemorative_year asc')
+  end
+
+  def show_nominal
+    @nominal_value = params[:nominal]
+    @coins = CommonCoin.joins(:country).find_all_by_nominal_value(@nominal_value, order: '"countries"."name" asc')
+  end
+
   def show_year
     @year = params[:year].to_i
     @coins = CommemorativeCoin.joins(:country).find_all_by_commemorative_year(@year, order: '"countries"."name" asc')

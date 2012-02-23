@@ -1,0 +1,6 @@
+<%= render "coin_pager" %>
+
+<section id="coins">
+	<h2>Mündid väärtusega <%= nominal_value(@nominal_value) %></h2>
+	<%= render partial: "coin", collection: @coins, locals: { notice: notice } %>
+</section>

@@ -1,0 +1,15 @@
+<%= render "coin_pager" %>
+
+<section id="coins">
+	<% if @common_coins.any? then %>
+	<h2><%= @country.genitive %> üldised käibemündid</h2>
+	<%= render partial: "coin", collection: @common_coins %>
+
+	<br style="clear: both;" />
+	<% end %>
+
+	<% if @commemorative_coins.any? then %>
+	<h2><%= @country.genitive %> mälestusmündid</h2>
+	<%= render partial: "coin", collection: @commemorative_coins %>
+	<% end %>
+</section>
