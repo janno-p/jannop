@@ -6,9 +6,8 @@ gem 'cancan'
 gem 'paperclip'
 gem 'ruby-openid'
 gem 'rack-openid'
-gem 'will_paginate', '~> 3.0'
-
 gem 'sqlite3'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
