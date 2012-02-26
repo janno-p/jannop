@@ -6,10 +6,8 @@ gem 'cancan'
 gem 'paperclip'
 gem 'ruby-openid'
 gem 'rack-openid'
-gem 'will_paginate', '~> 3.0'
-
 gem 'sqlite3'
-gem 'irbtools', :require => 'irbtools/configure'
+gem 'will_paginate', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
@@ -22,6 +20,7 @@ gem 'capistrano'
 
 group :development do
   gem 'mongrel', '>= 1.2.0.pre2'
+  gem 'pry'
 end
 
 group :test do
