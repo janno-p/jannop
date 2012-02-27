@@ -6,10 +6,6 @@ class CoinsController < ApplicationController
 
   def index
     @latest_coins = Coin.get_latest(5)
-    respond_to do |format|
-      format.html
-      format.json { render json: @nominals }
-    end
   end
 
   def new_common
@@ -34,11 +30,9 @@ class CoinsController < ApplicationController
 
     @coin.nominal_value = "2.00" if @coin.is_a? CommemorativeCoin
 
-    respond_to do |format|
-      if @coin.save then
-        format.html { redirect_to(coins_path, notice: 'Coin was successfully created.') }
-        format.json { render json: @coin, status: :created, location: @coin }
-      end
+    if @coin.save then
+      country_path = show_country_coins_path(@coin.country.code)
+      redirect_to country_path, notice: 'Coin was successfully created.'
     end
   end
 
@@ -76,14 +70,11 @@ class CoinsController < ApplicationController
 
     @coin.collect(collected ? Time.now : nil, collected_by)
 
-    respond_to do |format|
-      if @coin.update_attributes(coin_hash)
-        format.html { redirect_to(coins_path, notice: 'Coin was successfully updated.') }
-        format.xml { head :ok }
-      else
-        format.html { render action: :edit }
-        format.xml { render xml: @coin.errors, status: :unprocessable_entity }
-      end
+    if @coin.update_attributes(coin_hash) then
+      country_path = show_country_coins_path(@coin.country.code)
+      redirect_to country_path, notice: 'Coin was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -96,9 +87,6 @@ class CoinsController < ApplicationController
   private
   def new
     @countries = Country.all_ordered_by_name
-    respond_to do |format|
-      format.html { render :new }
-      format.json { render json: @coin }
-    end
+    render :new
   end
 end
