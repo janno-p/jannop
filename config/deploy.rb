@@ -38,7 +38,7 @@ namespace :deploy do
   after "deploy:symlink" do
     run "cd #{current_path}/config; rm settings.yml; ln -sf #{shared_path}/settings.yml"
     run "cd #{current_path}/db; rm production.sqlite3; ln -sf #{shared_path}/production.sqlite3"
-    run "cd #{current_path}/public; rmdir coins; ln -sf #{shared_path}/coins"
+    run "cd #{current_path}/public; rm -f coins; ln -sf #{shared_path}/coins"
   end
 
   task :start do ; end
