@@ -35,7 +35,7 @@ set :git_enable_submodules, 1
 
 # Capistrano tasks
 namespace :deploy do
-  after "deploy:update" do
+  after "deploy:update_code" do
     run "cd #{release_path}/config; rm settings.yml; ln -sf #{shared_path}/settings.yml"
     run "cd #{release_path}/db; rm production.sqlite3; ln -sf #{shared_path}/production.sqlite3"
     run "cd #{release_path}/public; rm -f coins; ln -sf #{shared_path}/coins"
