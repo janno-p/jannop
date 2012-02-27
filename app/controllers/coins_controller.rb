@@ -61,6 +61,38 @@ class CoinsController < ApplicationController
     @coins = CommemorativeCoin.joins(:country).find_all_by_commemorative_year(@year, order: '"countries"."name" asc')
   end
 
+  def edit
+    @coin = Coin.find(params[:id])
+    @countries = Country.all_ordered_by_name
+  end
+
+  def update
+    @coin = Coin.find(params[:id])
+    @countries = Country.all_ordered_by_name
+
+    coin_hash = params[:coin]
+    collected = coin_hash.delete(:collected).to_i == 1
+    collected_by = coin_hash.delete(:collected_by)
+
+    @coin.collect(collected ? Time.now : nil, collected_by)
+
+    respond_to do |format|
+      if @coin.update_attributes(coin_hash)
+        format.html { redirect_to(coins_path, notice: 'Coin was successfully updated.') }
+        format.xml { head :ok }
+      else
+        format.html { render action: :edit }
+        format.xml { render xml: @coin.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @coin = Coin.find(params[:id])
+    @coin.destroy
+    redirect_to coins_path
+  end
+
   private
   def new
     @countries = Country.all_ordered_by_name

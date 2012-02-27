@@ -1,0 +1,5 @@
+<h1><%= @coin.is_a?(CommonCoin) ? 'Käibe' : 'Mälestus' %>mündi muutmine</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Tagasi nimekirja', coins_path %>
