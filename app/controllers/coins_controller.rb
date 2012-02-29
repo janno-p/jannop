@@ -33,6 +33,8 @@ class CoinsController < ApplicationController
     if @coin.save then
       country_path = show_country_coins_path(@coin.country.code)
       redirect_to country_path, notice: 'Coin was successfully created.'
+    else
+      render :new
     end
   end
 
