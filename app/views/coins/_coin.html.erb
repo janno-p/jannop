@@ -3,10 +3,14 @@
     <%= image_tag coin.image_url %>
   </header>
   <p>
-		<% unless @country then %>
-			<%= link_to_country(coin) %>
-		<% end %>
-		<%= link_to_value(coin) %>
+    <% if controller.action_name == 'index' then %>
+      <%= link_to_country(coin) %><br />
+      <%= link_to_value(coin) %>
+    <% elsif @country then %>
+      <%= link_to_value(coin) %>
+    <% else %>
+      <%= link_to_country(coin) %>
+    <% end %>
   </p>
   <% if can? [:update, :destroy], :coin then %>
   <footer>
