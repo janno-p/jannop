@@ -4,6 +4,7 @@ gem 'rails', '3.2.2'
 
 gem 'cancan'
 gem 'paperclip'
+gem 'pry'
 gem 'ruby-openid'
 gem 'rack-openid'
 gem 'sqlite3'
@@ -20,7 +21,6 @@ gem 'capistrano'
 
 group :development do
   gem 'mongrel', '>= 1.2.0.pre2'
-  gem 'pry'
 end
 
 group :test do
