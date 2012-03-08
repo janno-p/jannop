@@ -55,6 +55,10 @@ class Coin < ActiveRecord::Base
   end
 
   def self.get_latest(n)
-    Coin.limit(n).where('collected_at is not null').order('collected_at desc').to_a
+    limit(n).where('collected_at is not null').order('collected_at desc').to_a
+  end
+
+  def self.wishlist(max_results = nil)
+    limit(max_results).where(collected_at: nil)
   end
 end

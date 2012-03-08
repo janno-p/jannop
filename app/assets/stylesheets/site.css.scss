@@ -46,13 +46,13 @@ li.google {
   }
 }
 
-ul {
-  list-style: none;
-}
+// ul {
+//   list-style: none;
+// }
 
-li {
-  clear: both;
-}
+// li {
+//   clear: both;
+// }
 
 // li>b, li>strong, li>span {
 //   display: block;
@@ -78,7 +78,7 @@ article.coin {
   width: 160px;
   border: 1px solid #ccc;
   float: left;
-  margin: 0 10px 10px 0;
+  margin: 0;
   padding: 10px 0 0 0;
   text-align: center;
 
@@ -98,6 +98,44 @@ article.coin {
   }
 }
 
-section#coins[last-child] {
-  margin-right: 0;
+section.coin-list {
+  footer {
+    clear: both;
+  }
+}
+
+.widget {
+  width: 490px;
+}
+.widget a.previous {
+  float: left;
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin-top: 28px;
+  margin-right: 2px;
+}
+.widget a.next {
+  float: right;
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin-top: -71px;
+}
+.anyClass {
+  text-align: left;
+  padding: 0;
+}
+.anyClass ul {
+  margin: 0;
+  padding: 0;
+}
+.anyClass li {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+.anyClass img {
+  width: 150px;
+  height: 150px;
 }

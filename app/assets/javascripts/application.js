@@ -6,5 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-jcarousellite-1.0.1/jquery.jcarousellite.min
+//= require jquery-mousewheel-3.0.6/jquery.mousewheel.min
 //= require_tree .
-

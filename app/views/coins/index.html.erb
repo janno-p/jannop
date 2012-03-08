@@ -1,8 +1,33 @@
 <%= render 'coin_pager' %>
 
 <% if @latest_coins.count > 0 then %>
-<section id="coins">
+<section class="coins widget">
   <h2>Viimased leiud</h2>
-  <%= render partial: "coin", collection: @latest_coins, locals: { notice: notice } %>
+  <div class="anyClass">
+    <ul>
+      <% @latest_coins.each_with_index do |coin, index| %>
+      <li data-index="<%= index %>"><%= render partial: "coin", object: coin %></li>
+      <% end %>
+    </ul>
+  </div>
+  <button class="prev">&laquo;</button>
+  <button class="next">&raquo;</button>
 </section>
 <% end %>
+
+<% if @wishlist.count > 0 then %>
+<section class="coin-list">
+  <h2>Puuduvad mündid</h2>
+  <div class="anyClass2">
+    <ul>
+      <% @wishlist.each do |coin| %>
+      <li><%= render partial: "coin", object: coin %></li>
+      <% end %>
+    </ul>
+  </div>
+  <button class="prev">&laquo;</button>
+  <button class="next">&raquo;</button>
+</section>
+<% end %>
+
+<div class="test"></div>

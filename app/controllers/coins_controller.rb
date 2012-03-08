@@ -5,7 +5,8 @@ class CoinsController < ApplicationController
   authorize_resource :class => false
 
   def index
-    @latest_coins = Coin.get_latest(5)
+    @latest_coins = Coin.get_latest(8)
+    @wishlist = Coin.wishlist(8)
   end
 
   def new_common
