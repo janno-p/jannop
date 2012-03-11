@@ -1,33 +1,15 @@
 <%= render 'coin_pager' %>
 
-<% if @latest_coins.count > 0 then %>
-<section class="coins widget">
-  <h2>Viimased leiud</h2>
-  <div class="anyClass">
+<div id="wrap">
+  <h1>jCarousel</h1>
+  <h2>Riding carousels with jQuery</h2>
+  <h3>Carousel with dynamic content loading via Ajax</h3>
+  <p>The data is loaded dynamically from a simple text file which contains the image urls.</p>
+  <div id="mycarousel" class="jcarousel-skin-ie7">
     <ul>
-      <% @latest_coins.each_with_index do |coin, index| %>
-      <li data-index="<%= index %>"><%= render partial: "coin", object: coin %></li>
-      <% end %>
+      <!-- The content will be dynamically loaded in here -->
     </ul>
   </div>
-  <button class="prev">&laquo;</button>
-  <button class="next">&raquo;</button>
-</section>
-<% end %>
+</div>
 
-<% if @wishlist.count > 0 then %>
-<section class="coin-list">
-  <h2>Puuduvad mündid</h2>
-  <div class="anyClass2">
-    <ul>
-      <% @wishlist.each do |coin| %>
-      <li><%= render partial: "coin", object: coin %></li>
-      <% end %>
-    </ul>
-  </div>
-  <button class="prev">&laquo;</button>
-  <button class="next">&raquo;</button>
-</section>
-<% end %>
-
-<div class="test"></div>
+<p id="test-output"></p>

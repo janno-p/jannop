@@ -7,6 +7,11 @@ class CoinsController < ApplicationController
   def index
     @latest_coins = Coin.get_latest(8)
     @wishlist = Coin.wishlist(8)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @latest_coins }
+    end
   end
 
   def new_common
