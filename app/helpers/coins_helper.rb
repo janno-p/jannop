@@ -15,15 +15,17 @@ module CoinsHelper
   def coin_url(coin)
     coin.new_record? ? coins_path : coin_path(coin)
   end
+
+  def value(coin)
+    (coin.is_a? CommemorativeCoin) ? coin.commemorative_year : nominal_value(coin)
+  end
+
+  def path(coin)
+    (coin.is_a? CommemorativeCoin) ? show_year_coins_path(coin.commemorative_year) : nominal_path(coin)
+  end
   
   def link_to_value(coin)
-    if coin.is_a? CommemorativeCoin then
-      link_to coin.commemorative_year, show_year_coins_path(coin.commemorative_year)
-    elsif coin.is_a? CommonCoin then
-      link_to nominal_value(coin), nominal_path(coin)
-    else
-      raise "Unexpected coin type!"
-    end
+    link_to value(coin), path(coin)
   end
   
   def link_to_country(coin)

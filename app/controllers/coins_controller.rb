@@ -10,7 +10,10 @@ class CoinsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @latest_coins }
+      format.json do
+        @coin_list = @latest_coins
+        render :coin_list
+      end
     end
   end
 

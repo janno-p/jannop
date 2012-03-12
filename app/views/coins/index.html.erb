@@ -1,15 +1,17 @@
 <%= render 'coin_pager' %>
 
 <div id="wrap">
-  <h1>jCarousel</h1>
-  <h2>Riding carousels with jQuery</h2>
-  <h3>Carousel with dynamic content loading via Ajax</h3>
-  <p>The data is loaded dynamically from a simple text file which contains the image urls.</p>
-  <div id="mycarousel" class="jcarousel-skin-ie7">
-    <ul>
-      <!-- The content will be dynamically loaded in here -->
-    </ul>
+  <h2>Viimased leiud</h2>
+  <div class="jcarousel-skin-ie7">
+    <div class="jcarousel-container jcarousel-container-horizontal">
+      <div class="jcarousel-clip jcarousel-clip-horizontal">
+        <ul id="mycarousel" class="jcarousel-list jcarousel-list-horizontal">
+          <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-horizontal">First item</li>
+          <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-horizontal">Second item</li>
+        </ul>
+      </div>
+      <div disabled="disabled" class="jcarousel-prev jcarousel-prev-disabled jcarousel-prev-horizontal jcarousel-prev-disabled-horizontal"></div>
+      <div class="jcarousel-next jcarousel-next-horizontal"></div>
+    </div>
   </div>
 </div>
-
-<p id="test-output"></p>

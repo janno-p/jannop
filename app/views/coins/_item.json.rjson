@@ -1,0 +1,5 @@
+{
+  :image_url => item.image_url,
+  :country => [item.country.name, show_country_coins_path(item.country.code)],
+  :value => [value(item), path(item)]
+}

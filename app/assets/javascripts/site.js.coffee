@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-collectedItemsCount = 0
-
 myCarouselItemLoadCallback = (carousel, state) ->
   return unless state == 'init'
   $.getJSON("coins", { first: carousel.first, last: carousel.last }, (data) ->
@@ -12,15 +10,21 @@ myCarouselItemLoadCallback = (carousel, state) ->
   )
 
 myCarouselGetItemHTML = (item) ->
-  #"<img src=\"#{url}\" width=\"75\" height=\"75\" alt=\"\" />"
-  "<p>#{item.nominal_value}</p>"
+  "<article class=\"coin\">
+    <header><img src=\"#{item.image_url}\" alt=\"\" /></header>
+    <p>
+      <a href=\"#{item.country[1]}\">#{item.country[0]}</a><br />
+      <a href=\"#{item.value[1]}\">#{item.value[0]}</a>
+    </p>
+  </article>"
 
 $(document).ready ->
   $("#account-link").click ->
     $("#account-panel").slideToggle(200)
     return
   $("#mycarousel").jcarousel {
-    itemLoadCallback: myCarouselItemLoadCallback
+    itemLoadCallback: myCarouselItemLoadCallback,
+    scroll: 1
   }
   return
 

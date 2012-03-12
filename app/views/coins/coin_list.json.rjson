@@ -1,0 +1,3 @@
+@coin_list.map do |item|
+  render :partial => 'item', :object => item
+end
